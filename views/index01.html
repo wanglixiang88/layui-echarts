@@ -13,6 +13,12 @@
             color: #d3d7d4;
         }
 
+        html,
+        body {
+            height: 100%;
+            overflow-y: hidden;
+        }
+
         .site-demo .layui-row {
             margin-bottom: 10px;
         }
@@ -60,7 +66,7 @@
 
 </head>
 
-<body style="background-color:#77787b; overflow-x:hidden; display:none;">
+<body style="background-color:#77787b; display:none; height:100%;">
 
     <div class="layui-row" style="padding:10px;">
 
@@ -87,7 +93,7 @@
                                 <p class="font_weight font_size30">2.40%</p>
                             </div>
 
-                            <div class="layui-col-md12" id="chartmain01" style="width:100%; height:100px;"></div>
+                            <div class="layui-col-md12" id="chartmain01" style="width:100%; height:130px;"></div>
 
                         </div>
 
@@ -147,7 +153,7 @@
 
                 </div>
             </div>
-            <div class="layui-col-md8 ">
+            <div class="layui-col-md8 " id="div_fault">
 
                 <div class="layui-col-md12 grid-demo-bg1">
                     <div class="layui-col-md12 layui-col-xs12 font_left">全年故障分析</div>
@@ -190,12 +196,11 @@
             var layer = layui.layer
                 , form = layui.form;
 
-                var date = new Date;
+            var date = new Date;
             var y = date.getFullYear();
             if (y == "2020") {
                 document.getElementsByTagName("body")[0].style.display = "";
             }
-
 
             var div1 = document.getElementById('div_row01').offsetHeight;
             var div2 = document.getElementById('div_row02').offsetHeight;
@@ -203,7 +208,9 @@
             document.getElementById('chartmain02').style.height = height01 + "px";
 
             var bodyHeight = document.body.clientHeight;
-            var height02 = bodyHeight - 15 - height01;
+            var height03 = document.getElementById("div_fault").offsetHeight;
+
+            var height02 = bodyHeight - 50 - height03;
 
             document.getElementById('chartmain03').style.height = height02 + "px";
             document.getElementById('chartmain04').style.height = height02 + "px";
