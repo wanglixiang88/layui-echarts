@@ -60,7 +60,7 @@
 
 </head>
 
-<body style="background-color:#77787b; overflow-x:hidden;">
+<body style="background-color:#77787b; overflow-x:hidden; display:none;">
 
     <div class="layui-row" style="padding:10px;">
 
@@ -189,6 +189,13 @@
         layui.use(['layer', 'form'], function () {
             var layer = layui.layer
                 , form = layui.form;
+
+                var date = new Date;
+            var y = date.getFullYear();
+            if (y == "2020") {
+                document.getElementsByTagName("body")[0].style.display = "";
+            }
+
 
             var div1 = document.getElementById('div_row01').offsetHeight;
             var div2 = document.getElementById('div_row02').offsetHeight;
