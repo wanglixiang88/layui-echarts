@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>index02</title>
+    <link rel="stylesheet" href="../layui/css/layui.css">
+
+    <style>
+        * {
+            line-height: 35px !important;
+            padding: 0px;
+            margin: 0px;
+            color: #ffffff;
+        }
+
+        .page_title {
+            line-height: 70px !important;
+            font-size: 25px;
+            font-weight: bolder;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: bolder;
+        }
+
+        .p_max {
+            font-size: 30px;
+            line-height: 50px !important;
+        }
+
+        .layui-progress {
+            width: 75%;
+        }
+
+        tr:hover {
+            background-color: transparent;
+        }
+
+        .layui-col-md12>table {
+            width: 70%;
+            text-align: center;
+            border-top: 1px solid #FFB800;
+            border-bottom: 1px solid #FFB800;
+        }
+
+        .layui-progress {
+            background-color: transparent;
+        }
+    </style>
+
+</head>
+
+<body style="background-color:#000;">
+    <div class="layui-row" style="padding: 10px;">
+        <div class="layui-col-md12 page_title">江苏省高速路加油站全网监控系统总体运行态势（最近七天）</div>
+        <div class="layui-col-md12">
+
+            <div class="layui-col-md6">
+
+                <div class="layui-col-md3">
+                    <p>摄像头总数</p>
+                    <p class="p_max" style="color:#5FB878;">2020</p>
+                </div>
+
+                <div class="layui-col-md3">
+                    <p>平均在线率</p>
+                    <p class="p_max" style="color:#FFB800;">99%</p>
+                    <div class="layui-progress">
+                        <div class="layui-progress-bar layui-bg-orange" lay-percent="99%"></div>
+                    </div>
+                </div>
+
+                <div class="layui-col-md3">
+                    <p>平均介入率</p>
+                    <p class="p_max" style="color:#01AAED;">95%</p>
+                    <div class="layui-progress">
+                        <div class="layui-progress-bar layui-bg-blue" lay-percent="95%"></div>
+                    </div>
+                </div>
+
+                <div class="layui-col-md3">
+                    <p>平均完好率</p>
+                    <p class="p_max" style="color:#FF5722;">75%</p>
+                    <div class="layui-progress">
+                        <div class="layui-progress-bar layui-bg-red" lay-percent="75%"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="layui-col-md6">
+                <div class="layui-col-md12" id="chartmain01" style="height:250px;"></div>
+            </div>
+
+            <div class="layui-col-md4">
+                <div class="layui-col-md12" id="chartmain02" style="height:550px;"></div>
+            </div>
+
+            <div class="layui-col-md4">
+                <div class="layui-col-md12">
+                    <table style="text-align:left; border:none; margin:0px auto;">
+                        <tr>
+                            <td colspan="2">各行政区视频完好率排名</td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">南京市</td>
+                            <td style="width:80%;">
+                                <div class="layui-progress">
+                                    <div class="layui-progress-bar layui-bg-orange" lay-percent="100%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">苏州市</td>
+                            <td style="width:80%;">
+                                <div class="layui-progress">
+                                    <div class="layui-progress-bar layui-bg-orange" lay-percent="95%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">无锡市</td>
+                            <td style="width:80%;">
+                                <div class="layui-progress">
+                                    <div class="layui-progress-bar layui-bg-orange" lay-percent="90%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">常州市</td>
+                            <td style="width:80%;">
+                                <div class="layui-progress">
+                                    <div class="layui-progress-bar layui-bg-orange" lay-percent="85%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">扬州市</td>
+                            <td style="width:80%;">
+                                <div class="layui-progress">
+                                    <div class="layui-progress-bar layui-bg-orange" lay-percent="80%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">镇江市</td>
+                            <td style="width:80%;">
+                                <div class="layui-progress">
+                                    <div class="layui-progress-bar layui-bg-orange" lay-percent="75%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">泰州市</td>
+                            <td style="width:80%;">
+                                <div class="layui-progress">
+                                    <div class="layui-progress-bar layui-bg-orange" lay-percent="70%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">徐州市</td>
+                            <td style="width:80%;">
+                                <div class="layui-progress">
+                                    <div class="layui-progress-bar layui-bg-orange" lay-percent="65%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">南通市</td>
+                            <td style="width:80%;">
+                                <div class="layui-progress">
+                                    <div class="layui-progress-bar layui-bg-orange" lay-percent="60%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">盐城市</td>
+                            <td style="width:80%;">
+                                <div class="layui-progress">
+                                    <div class="layui-progress-bar layui-bg-orange" lay-percent="55%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">连云港市</td>
+                            <td style="width:80%;">
+                                <div class="layui-progress">
+                                    <div class="layui-progress-bar layui-bg-orange" lay-percent="50%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">宿迁市</td>
+                            <td style="width:80%;">
+                                <div class="layui-progress">
+                                    <div class="layui-progress-bar layui-bg-orange" lay-percent="45%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%;">淮安市</td>
+                            <td style="width:80%;">
+                                <div class="layui-progress">
+                                    <div class="layui-progress-bar layui-bg-orange" lay-percent="40%"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="layui-col-md4">
+                <div class="layui-col-md12" style="font-size: 16px;">各行政区每日告警/事件数量表</div>
+                <div class="layui-col-md12">
+                    <table>
+                        <thead style="border-bottom:1px solid #FFB800;">
+                            <tr>
+                                <th class="font_center">行政区</th>
+                                <th class="font_center">时间量</th>
+                                <th class="font_center">已处理</th>
+                                <th class="font_center">确认率</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>南京市</td>
+                                <td>23</td>
+                                <td>23</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>无锡市</td>
+                                <td>20</td>
+                                <td>20</td>
+                                <td>100%</td>
+                            </tr>
+                            <tr>
+                                <td>滁州市</td>
+                                <td>20</td>
+                                <td>18</td>
+                                <td>95%</td>
+                            </tr>
+                            <tr>
+                                <td>常州市</td>
+                                <td>18</td>
+                                <td>17</td>
+                                <td>94%</td>
+                            </tr>
+                            <tr>
+                                <td>苏州市</td>
+                                <td>17</td>
+                                <td>15</td>
+                                <td>88%</td>
+                            </tr>
+                            <tr>
+                                <td>南通市</td>
+                                <td>15</td>
+                                <td>13</td>
+                                <td>87%</td>
+                            </tr>
+                            <tr>
+                                <td>淮安市</td>
+                                <td>10</td>
+                                <td>8</td>
+                                <td>80%</td>
+                            </tr>
+                            <tr>
+                                <td>盐城市</td>
+                                <td>10</td>
+                                <td>8</td>
+                                <td>80%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../layui/layui.js"></script>
+    <script src="../echarts.min.js"></script>
+    <script>
+        //一般直接写在一个js文件中
+        layui.use('element', function () {
+            var $ = layui.jquery
+                , element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
+
+            myChartmain01();
+            myChartmain02();
+        });
+
+        function myChartmain01() {
+
+            var option = {
+                title: {
+                    show: true,
+                    text: '全省每日告警/事件数量趋势图（近七日）',
+                    x: 'center',
+                    y: 'top',
+                    textStyle: {//主标题文本样式{"fontSize": 18,"fontWeight": "bolder","color": "#333"}
+                        color: '#ffffff',
+                        fontSize: 16
+                    },
+                },
+                color: ['#5FB878'],
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: ['10月1日', '10月2日', '10月3日', '10月4日', '10月5日', '10月6日', '10月7日'],
+                        axisPointer: {
+                            type: 'shadow'
+                        },
+                        axisLabel: {
+                            show: true,
+                            textStyle: {
+                                color: '#ffffff'
+                            }
+                        }
+                    }
+                ],
+                yAxis: {
+                    axisLabel: {
+                        show: true,
+                        textStyle: {
+                            color: '#ffffff'
+                        }
+                    }
+                },
+                series: [{
+                    data: [105, 45, 21, 189, 134, 99, 80],
+                    type: 'line',
+                    smooth: true
+                }]
+            };
+
+            var myChart = echarts.init(document.getElementById('chartmain01'));
+            myChart.setOption(option);
+        }
+
+        function myChartmain02() {
+
+            var option = {
+                title: {
+                    text: '各行政区摄像头数（数量及占比）',
+                    left: 'center',
+                    textStyle: {
+                        color: '#ffffff',
+                        fontSize: 16
+                    },
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b} : {c} ({d}%)',
+                    textStyle: {
+                        color: '#ffffff'
+                    },
+                },
+                legend: {
+                    type: 'scroll',
+                    orient: 'vertical',
+                    right: 10,
+                    top: 20,
+                    bottom: 20,
+                    data: ["南京市", "无锡市", "徐州市", "常州市", "苏州市", "南通市", "连云港市", "淮安市", "盐城市", "扬州市", "镇江市", "秦州市", "宿迁市"],
+                    textStyle: {
+                        color: '#ffffff'
+                    },
+                },
+                color: ['#faa755', '#a3cf62', '#ffd400', '#90d7ec', '#63BA79', '#FF5722', '#1E9FFF', '#009688', '#b7ba6b', '#585eaa', '#ed1941', '#ffc20e', '#afdfe4'],
+                series: [
+                    {
+                        name: '姓名',
+                        type: 'pie',
+                        radius: '55%',
+                        center: ['40%', '50%'],
+                        data: [
+                            { value: 220, name: '南京市' },
+                            { value: 180, name: '无锡市' },
+                            { value: 100, name: '徐州市' },
+                            { value: 160, name: '常州市' },
+                            { value: 220, name: '苏州市' },
+                            { value: 90, name: '南通市' },
+                            { value: 60, name: '连云港市' },
+                            { value: 50, name: '淮安市' },
+                            { value: 80, name: '盐城市' },
+                            { value: 100, name: '扬州市' },
+                            { value: 160, name: '镇江市' },
+                            { value: 120, name: '秦州市' },
+                            { value: 50, name: '宿迁市' },
+                        ],
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+
+            var myChart = echarts.init(document.getElementById('chartmain02'));
+            myChart.setOption(option);
+        }
+
+    </script>
+</body>
+
+</html>

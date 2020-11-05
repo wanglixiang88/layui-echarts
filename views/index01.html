@@ -9,7 +9,7 @@
 
     <style>
         * {
-            line-height: 30px;
+            line-height: 30px !important;
             color: #d3d7d4;
         }
 
@@ -34,13 +34,13 @@
             text-align: center !important;
         }
 
-        .font_weight{
+        .font_weight {
             font-weight: bolder;
             color: #faa755;
         }
 
-        .font_size30{
-            font-size:30px;
+        .font_size30 {
+            font-size: 30px;
         }
 
         .layui-table tbody tr:hover,
@@ -182,8 +182,6 @@
 
         </div>
     </div>
-
-
     <script src="../layui/layui.js"></script>
     <script src="../echarts.min.js"></script>
     <script>
@@ -194,7 +192,15 @@
 
             var div1 = document.getElementById('div_row01').offsetHeight;
             var div2 = document.getElementById('div_row02').offsetHeight;
-            document.getElementById('chartmain02').style.height=div1+div2-25+"px";
+            var height01 = div1 + div2 - 25;
+            document.getElementById('chartmain02').style.height = height01 + "px";
+
+            var bodyHeight = document.body.clientHeight;
+            var height02 = bodyHeight - 15 - height01;
+
+            document.getElementById('chartmain03').style.height = height02 + "px";
+            document.getElementById('chartmain04').style.height = height02 + "px";
+            document.getElementById('chartmain05').style.height = height02 + "px";
 
             myChartmain01();
             myChartmain02();
@@ -206,7 +212,7 @@
         function myChartmain01() {
 
             var option = {
-                
+
                 color: ['#faa755'],
                 xAxis: {
                     show: false,
@@ -267,8 +273,6 @@
                             }
                         }
                     }
-
-
                 ],
                 yAxis: {
                     type: 'value',
