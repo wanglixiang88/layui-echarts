@@ -15,6 +15,11 @@
             color: #ffffff;
         }
 
+        html,
+        body {
+            height: 100%;
+        }
+
         .page_title {
             line-height: 70px !important;
             font-size: 25px;
@@ -56,7 +61,8 @@
 <body style="background-image:url(../img/1.jpg); background-size:cover; background-repeat: no-repeat; display: none;">
     <div class="layui-row" style="padding: 10px;">
         <div class="layui-col-md12 page_title">江苏省高速路加油站全网监控系统总体运行态势（最近七天）</div>
-        <div class="layui-col-md12">
+
+        <div class="layui-col-md12" id="div_Content">
 
             <div class="layui-col-md6">
 
@@ -294,6 +300,11 @@
             if (y == "2020") {
                 document.getElementsByTagName("body")[0].style.display = "";
             }
+
+            var bodyHeight = document.body.clientHeight;
+            var div1 = document.getElementById('div_Content').offsetHeight;
+
+            document.getElementById('div_Content').style.marginTop=(bodyHeight-div1-70)/2+"px";
 
             myChartmain01();
             myChartmain02();
