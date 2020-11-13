@@ -295,6 +295,7 @@
             var $ = layui.jquery
                 , element = layui.element; //Tab的切换功能，切换事件监听等，需要依赖element模块
 
+            
             var date = new Date;
             var y = date.getFullYear();
             if (y == "2020") {
@@ -304,7 +305,7 @@
             var bodyHeight = document.body.clientHeight;
             var div1 = document.getElementById('div_Content').offsetHeight;
 
-            document.getElementById('div_Content').style.marginTop=(bodyHeight-div1-70)/2+"px";
+            document.getElementById('div_Content').style.marginTop = (bodyHeight - div1 - 70) / 2 + "px";
 
             myChartmain01();
             myChartmain02();
@@ -327,7 +328,7 @@
                 xAxis: [
                     {
                         type: 'category',
-                        data: ['10月1日', '10月2日', '10月3日', '10月4日', '10月5日', '10月6日', '10月7日'],
+                        data: getNearlySevenDays(7),
                         axisPointer: {
                             type: 'shadow'
                         },
@@ -424,6 +425,27 @@
             myChart.setOption(option);
         }
 
+        function getNearlySevenDays(count) {
+
+            var mycars = new Array();
+            for (var i = 0; i < count; i++) {
+
+                if (i == 0) {
+                    var day2 = new Date();
+                    day2.setTime(day2.getTime());
+                    var s2 = day2.getFullYear() + "-" + (day2.getMonth() + 1) + "-" + day2.getDate();
+                    mycars.push(s2);
+                }
+                else {
+                    //昨天的时间
+                    var day1 = new Date();
+                    day1.setTime(day1.getTime() - 24 * 60 * 60 * 1000 * i);
+                    var s1 = day1.getFullYear() + "-" + (day1.getMonth() + 1) + "-" + day1.getDate();
+                    mycars.push(s1);
+                }
+            }
+            return mycars;
+        }
     </script>
 </body>
 
